@@ -1,1 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <!-- ここに追加 -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<title>受験おみくじ</title>
+<style>
+  body {
+    font-family: 'Press Start 2P', monospace;
+    text-align: center;
+    margin-top: 80px;
+     /* 背景画像の完全レスポンシブ設定 */
+  background-image: url("Otashrine.jpg");
+  background-size: cover;        /* 画面にぴったり収まる */
+  background-position: center;   /* 中央配置 */
+  background-repeat: no-repeat;  /* 繰り返さない */
+  background-attachment: fixed;  /* スクロールしても固定（任意） */
+  min-height: 100vh;             /* 画面高さ100% */
+    color: white;  /* 文字色を白に */
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.8); /* 文字に影を追加 */
+}
+  h1 { color: #bff0ff; }
+  button {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #bff0ff;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  button:hover { background-color: #6adafc; }
+  .result {
+    margin-top: 120px;
+    font-size: 24px;
+    color: white;
+　　text-shadow: 2px 2px 4px rgba(0,0,0,0.9);
+  　background: rgba(0,0,0,0.3); /* 結果部分にも薄い背景 */
+  　padding: 20px;
+  　border-radius: 10px;
+}
+  }
+</style>
+</head>
+<body>
 
+<h1>　　　</h1>
+<button onclick="drawOmikuji()">おみくじを引く</button>
+
+<div class="result" id="result"></div>
+
+<script>
+function drawOmikuji() {
+  // あまり悪い結果を出さない設定
+  const fortunes = [
+    "大吉", "中吉", "吉", "小吉", "末吉"
+  ];
+
+  const subjects = {
+    "国語": ["文法", "漢字", "読解"],
+    "数学": ["方程式", "関数", "図形","データ","証明"],
+    "英語": ["文法", "長文","英作"],
+    "理科": ["化学", "物理", "生物","地学"],
+    "社会": ["日本地理","世界地理", "世界史","日本史","公民"]
+  };
+
+  // 吉凶をランダムに選ぶ
+  const fortune = fortunes[Math.floor(Math.random() * fortunes.length)];
+
+  // 教科と分野をランダムに選ぶ
+  const subjectKeys = Object.keys(subjects);
+  const subject = subjectKeys[Math.floor(Math.random() * subjectKeys.length)];
+  const field = subjects[subject][Math.floor(Math.random() * subjects[subject].length)];
+
+  // 結果を表示
+  document.getElementById("result").innerHTML =
+    `<p>🌸 あなたの運勢は… <b>${fortune}</b>！</p>
+     <p>🎓 ラッキー教科は <b>${subject}（${field}）</b> ✨</p>`;
+}
+</script>
+
+</body>
+</html>
