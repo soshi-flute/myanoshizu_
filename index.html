@@ -9,18 +9,27 @@
   body {
     font-family: 'Press Start 2P', monospace;
     text-align: center;
-    margin-top: 80px;
-     /* 背景画像の完全レスポンシブ設定 */
-  background-image: url("https://github.com/soshi-flute/myanoshizu_/issues/1#issuecomment-3642593658");
-  background-size: cover;        /* 画面にぴったり収まる */
-  background-position: center;   /* 中央配置 */
-  background-repeat: no-repeat;  /* 繰り返さない */
-  background-attachment: fixed;  /* スクロールしても固定（任意） */
-  min-height: 100vh;             /* 画面高さ100% */
+    margin: 0;
+    padding-top: 80px;
+
+    /* 背景画像＋半透明の黒のオーバーレイ */
+    background:
+      linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)),
+      url("https://github.com/soshi-flute/myanoshizu_/issues/1#issuecomment-3642593658");
+    background-size: cover;        /* 画面にぴったり収まる */
+    background-position: center;   /* 中央配置 */
+    background-repeat: no-repeat;  /* 繰り返さない */
+    background-attachment: fixed;  /* スクロールしても固定（任意） */
+    min-height: 100vh;             /* 画面高さ100% */
+
     color: white;  /* 文字色を白に */
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.8); /* 文字に影を追加 */
-}
-  h1 { color: #bff0ff; }
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8); /* 文字に影を追加 */
+  }
+
+  h1 {
+    color: #bff0ff;
+  }
+
   button {
     padding: 10px 20px;
     font-size: 18px;
@@ -30,16 +39,20 @@
     border-radius: 5px;
     cursor: pointer;
   }
-  button:hover { background-color: #6adafc; }
+
+  button:hover {
+    background-color: #6adafc;
+  }
+
   .result {
     margin-top: 120px;
     font-size: 24px;
     color: white;
-　　text-shadow: 2px 2px 4px rgba(0,0,0,0.9);
-  　background: rgba(0,0,0,0.3); /* 結果部分にも薄い背景 */
-  　padding: 20px;
-  　border-radius: 10px;
-}
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.9);
+    background: rgba(0,0,0,0.3); /* 結果部分にも薄い背景 */
+    padding: 20px;
+    border-radius: 10px;
+    display: inline-block;
   }
 </style>
 </head>
